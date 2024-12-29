@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ders Ekle</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+        }
+        .container {
+            width: 50%;
+            margin: 50px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #0078d7;
+        }
+        label {
+            font-weight: bold;
+            display: block;
+            margin-top: 15px;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        button, a {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            color: white;
+            text-decoration: none;
+            background-color: #0078d7;
+            border: none;
+            border-radius: 5px;
+        }
+        button:hover, a:hover {
+            background-color: #005fa3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Ders Ekle</h1>
+        <form method="POST">
+            <label for="ders_adi">Ders Adı:</label>
+            <input type="text" id="ders_adi" name="ders_adi" required>
+
+            <label for="giris_saati">Giriş Saati:</label>
+            <input type="time" id="giris_saati" name="giris_saati" required>
+
+            <label for="cikis_saati">Çıkış Saati:</label>
+            <input type="time" id="cikis_saati" name="cikis_saati" required>
+
+            <label for="gunler">Günler:</label>
+            <input type="text" id="gunler" name="gunler" placeholder="Örn: Pazartesi, Çarşamba" required>
+
+            <button type="submit">Kaydet</button>
+            <a href="/">Geri Dön</a>
+        </form>
+    </div>
+</body>
+</html>

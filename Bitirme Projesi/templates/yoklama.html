@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ ders_adi }} Yoklama Tablosu</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-top: 20px;
+        }
+
+        .table-container {
+            width: 90%;
+            margin: 20px auto;
+            overflow-x: auto;
+            background: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        th, td {
+            padding: 12px 15px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+            font-weight: bold;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        td.gec-girdi-evet {
+            background-color: #ff4d4d;
+            color: white;
+            font-weight: bold;
+        }
+
+        td {
+            color: #333;
+        }
+
+        .footer {
+            text-align: center;
+            margin: 20px 0;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .back-button {
+            display: block;
+            margin: 20px auto;
+            text-decoration: none;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .back-button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>{{ ders_adi }} Yoklama Tablosu</h1>
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Öğrenci Bilgisi</th>
+                    <th>Ders Adı</th>
+                    <th>Günü</th>
+                    <th>Giriş Saati</th>
+                    <th>Derse Geç Girdi mi?</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in yoklama_verileri %}
+                <tr>
+                    <td>{{ row[0] }}</td>
+                    <td>{{ row[1] }}</td>
+                    <td>{{ row[2] }}</td>
+                    <td>{{ row[3] }}</td>
+                    <td>{{ row[4] }}</td>
+                    <td class="{% if row[5] == 'Evet' %}gec-girdi-evet{% endif %}">
+                        {{ row[5] }}
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <a href="/" class="back-button">Ders Seçimine Geri Dön</a>
+    <div class="footer">
+        © 2024 Yoklama Sistemi | Tüm Hakları Saklıdır.
+    </div>
+</body>
+</html>
